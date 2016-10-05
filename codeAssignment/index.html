@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-2.2.4.js"></script>
+</head>
+<body>
+<p id="result">
+
+</p>
+<script>
+    var i = 0;
+    var out = "<ul>"
+    var data = '{"list":[' +
+            '{"name": "Test Task #1", "date": "12/01/2012", "assigned": "John Doe"},' +
+            '{"name": "Test Task #2", "date": "12/02/2012", "assigned": "John Doe"},' +
+            '{"name": "Test Task #3", "date": "12/03/2012", "assigned": "John Doe"},' +
+            '{"name": "Test Task #4", "date": "12/04/2012", "assigned": "John Doe"},' +
+            '{"name": "Test Task #5", "date": "12/05/2012", "assigned": "John Doe"},' +
+            '{"name": "Test Task #6", "date": "12/06/2012", "assigned": "John Doe"},' +
+            '{"name": "Test Task #7", "date": "12/07/2012", "assigned": "John Doe"}]}';
+
+    var myData = JSON.parse(data);
+    for (i = 0; i < myData.list.length; i++) {
+        out += "<li>" + myData.list[i].name + myData.list[i].date + myData.list[i].assigned + "</li>";
+    }
+    out += "</ul>";
+    //    alert(out);
+    $('#result').html(out);
+
+</script>
+
+
+</body>
+</html>

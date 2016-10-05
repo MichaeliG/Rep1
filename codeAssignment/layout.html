@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-2.2.4.js"></script>
+    <!--<script>-->
+    <!--var i = 0;-->
+    <!--var out = "<ul>";-->
+    <!--var data = '{"list":[' +-->
+    <!--'{"name": "Test Task #1", "date": "12/01/2012", "assigned": "John Doe"},' +-->
+    <!--'{"name": "Test Task #2", "date": "12/02/2012", "assigned": "John Doe"},' +-->
+    <!--'{"name": "Test Task #3", "date": "12/03/2012", "assigned": "John Doe"},' +-->
+    <!--'{"name": "Test Task #4", "date": "12/04/2012", "assigned": "John Doe"},' +-->
+    <!--'{"name": "Test Task #5", "date": "12/05/2012", "assigned": "John Doe"},' +-->
+    <!--'{"name": "Test Task #6", "date": "12/06/2012", "assigned": "John Doe"},' +-->
+    <!--'{"name": "Test Task #7", "date": "12/07/2012", "assigned": "John Doe"}]}';-->
+    <!--var myData = JSON.parse(data);-->
+    <!--$(document).ready(function () {-->
+    <!--for (i = 0; i < myData.list.length; i++) {-->
+    <!--out += "<li>" + myData.list[i].name + myData.list[i].date + myData.list[i].assigned + "</li>";-->
+    <!--}-->
+    <!--out += "</ul>";-->
+    <!--//    alert(out);-->
+    <!--$('#result').html(out);-->
+    <!--//            var count=0;-->
+    <!--//            $.ajax({-->
+    <!--//                type: 'GET'-->
+    <!--//                url: 'data.json',-->
+    <!--//                data: {get_param: 'value'},-->
+    <!--//                success: function (data) {-->
+    <!--//                    $.each(data, function (index, user) {-->
+    <!--//                       count++;-->
+    <!--//                    });-->
+    <!--//                }-->
+    <!--//            });-->
+    <!--//            $.getJSON("data.json", function (data) {-->
+    <!--//                alert("")-->
+    <!--//                for(i=0;i<count;i++) {-->
+    <!--//                    $('#result').append('<tr>' +-->
+    <!--//                            '<td>' + data[i].name + '<\/td>' +-->
+    <!--//                            '<td>' + data[i].date + '<\/td>' +-->
+    <!--//                            '<td>' + data[i].assigned + '<\/td>' +-->
+    <!--//                            '<\/tr>');-->
+    <!--//                }-->
+    <!--//            });-->
+    <!--});-->
+
+    <script>
+        var request = new XMLHttpRequest();
+        var url = "data.json";
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var dataArray = JSON.parse(request.responseText);
+                getData(dataArray);
+            } else {
+                error(request.status);
+            }
+        };
+        request.open("GET", url, true);
+        request.send();
+        function getData(user) {
+            var output = " ";
+            var i;
+            for (i = 0; i < user.length; i++) {
+                output +='<tr>' +
+                        '<td>' + user[i].name + '<\/td>' +
+                        '<td>' + user[i].date + '<\/td>' +
+                        '<td>' + user[i].assigned + '<\/td>' +
+                        '<\/tr>';
+
+            }
+            document.getElementById("result").innerHTML += output;
+        }
+        //        function addData() {
+        //            row = $("<tr></tr>");
+        //            col1 = $("<td>" + $('#taskName').val() + "</td>");
+        //            col2 = $("<td>" + $('#date').val() + "</td>");
+        //            col3 = $("<td>" + $('#assigned').val() + "</td>");
+        ////            row.append(col1, col2, col3).prependTo("#result");
+        //            $('#result').prepend("<tr>" + col1 + col2 + col3 + "</tr>")
+        ////            $('#result').html("<tr>" + col1 + col2 + col3 + "</tr>");
+        //        }
+    </script>
+</head>
+<body class="allBody">
+<div id="bodies">
+    <div class="forHeader">
+        <h1>Task Tracker</h1>
+        <p>v2.0</p>
+    </div>
+    <div class="forBody">
+        <div class="leftBody">
+            <h2>Create a Task</h2><br/>
+            <form>
+                <div class="content">
+                    <label>Task Name</label>
+                    <input type="text" id="taskName" style="width: 100%;">
+                </div>
+                <br>
+                <div class="content">
+                    <label>Date</label>
+                    <input type="date" id="date" style="width: 100%;">
+                </div>
+                <br>
+                <div class="content">
+                    <label>Assigned To</label>
+                    <input type="text" id="assigned" style="width: 100%;">
+                </div>
+                <br>
+                <button type="submit" onclick="addData()">Submit</button>
+
+            </form>
+        </div>
+        <div class="rightBody">
+            <h2>Existing tasks</h2>
+            <table id="result">
+
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
