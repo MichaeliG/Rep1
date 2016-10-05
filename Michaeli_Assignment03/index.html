@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        @font-face {
+            font-family: Helvetica;
+            src: url(HelveticaNeue.ttf);
+        }
+
+        #mainContent {
+            width: 310px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px dashed grey;
+            display: block;
+        }
+        #Yahoo{
+            width: 310px;
+            height:60px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 0%;
+            background-image: url("banner.JPG");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        /*#Yahoo > img {*/
+            /*width: 310px;*/
+            /*background-color: #fafafc;*/
+            /*width: 100%;*/
+            /*height: 100%;*/
+        /*}*/
+
+        #pageheading {
+            font-family: Helvetica;
+            font-size: 18.66667px;
+            font-weight: bolder;
+            color: #3f008f;
+            margin-left: 3%;
+            background-color: #fafafc;
+        }
+
+        .Menu,.Menu1 {
+            border-top: 1px solid grey;
+            border-collapse: collapse;
+            display: inline-block;
+            margin: auto;
+            width: 100%;
+            height: auto;
+
+        }
+
+        .textMenu {
+            margin-left: 3%;
+            display: inline-block;
+        }
+        .content{
+            border-top: 1px solid grey;
+            border-collapse: collapse;
+            display: inline-block;
+            margin: auto;
+            background-color: #eff3ff;
+            width:100%
+        }
+        .contentHeading{
+            margin-left: 3%;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .date{
+            margin-left: 3%;
+            font-family: Helvetica;
+            font-size: 10px;
+            margin-top: -5%;
+
+        }
+        .inContent{
+            margin-left: 3%;
+            display: inline-block;
+
+        }
+        .forCircle {
+            float: right;
+            margin-right: 3%;
+        }
+
+        .Outercircle1,.Outercircle {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1px solid orange;
+            margin-top: 50%;
+        }
+
+        .innercircle1,.innercircle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: orange;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 15%;
+        }
+        #define{
+            border-top: 1px solid grey;
+            border-collapse: collapse;
+            height: 50px;
+            background-color: #fafafc;
+            width:100%;
+            display:inline-flex;
+        }
+        #define > .forCircle1, .forCircle2{
+            margin-left: 3%;
+            float: left;
+            width:10%;
+        }
+        .definition{
+            margin-top: auto;
+            margin-bottom: auto;
+            font-size: 12px;
+            float: left;
+        }
+        #define > .forCircle1 >.Outercircle1{
+            border-color: green;
+        }
+        #define> .forCircle1 > .Outercircle1> .innercircle1{
+            background: green;
+        }
+        .ContactClick{
+            float: right;
+            width: 10%;
+        }
+        .Menu1{
+        background-color: #fafafc;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-2.2.4.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function () {
+    $(".content").hide();
+    $(".Menu").click(function () {
+        if($(".content",this).is(':visible')){
+            $(".content",this).hide();
+            $(".Outercircle",this).css("border-color", "orange");
+            $(".innercircle",this).css("background","orange");
+        }else{
+            if($(".content").is(':visible')){
+                $(".content").hide();
+                $(".Outercircle").css("border-color", "orange");
+                $(".innercircle").css("background","orange");
+            }
+            $(".content",this).toggle();
+            $(".Outercircle",this).css("border-color", "green");
+            $(".innercircle",this).css("background", "green");
+        }
+    });
+});
+</script>
+<div id="mainContent">
+    <!--Image-->
+    <div id="Yahoo"></div>
+    <!--Heading-->
+    <div id="pageheading">Product Availability Status</div>
+    <!--Menus-->
+    <div class="Menu">
+        <!--text-->
+        <div class="textMenu"><p>Mail</p></div>
+        <!--circle-->
+        <div class="forCircle">
+            <div class="Outercircle">
+                <div class="innercircle"></div>
+            </div>
+        </div>
+        <!--inner content-->
+        <div class="content">
+            <div class="contentHeading">
+                <p>Mail for desktop is down</p>
+            </div>
+            <!--circle in content-->
+            <div class="forCircle">
+                <div class="Outercircle">
+                    <div class="innercircle"></div>
+                </div>
+            </div>
+            <br>
+            <div class="date">May 30 2016</div>
+            <div class="inContent"><p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                consequat massa quisenim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="contentHeading">
+                <p>Mail for desktop is down</p>
+            </div>
+            <!--circle in content-->
+            <div class="forCircle">
+                <div class="Outercircle">
+                    <div class="innercircle"></div>
+                </div>
+            </div>
+            <br>
+            <div class="date">May 30 2016</div>
+            <div class="inContent"><p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                consequat massa quisenim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            </div>
+        </div>
+    </div>
+    <div class="Menu">
+        <!--text-->
+        <div class="textMenu"><p>Messenger</p></div>
+        <!--circle-->
+        <div class="forCircle">
+            <div class="Outercircle">
+                <div class="innercircle"></div>
+            </div>
+        </div>
+        <!--inner content-->
+        <div class="content">
+            <div class="contentHeading">
+                <p>Messenger for desktop is down</p>
+            </div>
+            <!--circle in content-->
+            <div class="forCircle">
+                <div class="Outercircle">
+                    <div class="innercircle"></div>
+                </div>
+            </div>
+            <br>
+            <div class="date">May 30 2016</div>
+            <div class="inContent"><p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                consequat massa quisenim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            </div>
+        </div>
+    </div>
+    <div class="Menu">
+        <!--text-->
+        <div class="textMenu"><p>Sports</p></div>
+        <!--circle-->
+        <div class="forCircle">
+            <div class="Outercircle">
+                <div class="innercircle"></div>
+            </div>
+        </div>
+        <!--inner content-->
+        <div class="content">
+            <div class="contentHeading">
+                <p>Sports for desktop is down</p>
+            </div>
+            <!--circle in content-->
+            <div class="forCircle">
+                <div class="Outercircle">
+                    <div class="innercircle"></div>
+                </div>
+            </div>
+            <br>
+            <div class="date">May 30 2016</div>
+            <div class="inContent"><p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                consequat massa quisenim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="Menu">
+        <!--text-->
+        <div class="textMenu"><p>Finance</p></div>
+        <!--circle-->
+        <div class="forCircle">
+            <div class="Outercircle">
+                <div class="innercircle"></div>
+            </div>
+        </div>
+        <!--inner content-->
+        <div class="content">
+            <div class="contentHeading">
+                <p>Finance for desktop is down</p>
+            </div>
+            <!--circle in content-->
+            <div class="forCircle">
+                <div class="Outercircle">
+                    <div class="innercircle"></div>
+                </div>
+            </div>
+            <br>
+            <div class="date">May 30 2016</div>
+            <div class="inContent"><p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                consequat massa quisenim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="Menu">
+        <!--text-->
+        <div class="textMenu"><p>Flickr</p></div>
+        <!--circle-->
+        <div class="forCircle">
+            <div class="Outercircle">
+                <div class="innercircle"></div>
+            </div>
+        </div>
+        <!--inner content-->
+        <div class="content">
+            <div class="contentHeading">
+                <p>Flickr for desktop is down</p>
+            </div>
+            <!--circle in content-->
+            <div class="forCircle">
+                <div class="Outercircle">
+                    <div class="innercircle"></div>
+                </div>
+            </div>
+            <br>
+            <div class="date">May 30 2016</div>
+            <div class="inContent"><p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                consequat massa quisenim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="define">
+        <div class="forCircle1">
+            <div class="Outercircle1">
+                <div class="innercircle1"></div>
+            </div>
+        </div>
+        <div class="definition"><p>Available</p></div>
+
+        <div class="forCircle2">
+            <div class="Outercircle1">
+                <div class="innercircle1"></div>
+            </div>
+        </div>
+        <div class="definition"><p>Service Disruption</p></div>
+    </div>
+
+    <div class="Menu">
+        <div class="textMenu"><p>Contact Options</p>
+        </div>
+        <div class="ContactClick"><p>&gt;</p></div>
+        <div class="content">
+            <div class="contentHeading">Email:michaeligade@gmail.com</div>
+        </div>
+    </div>
+    <div class="Menu1">
+        <div class="textMenu"></div>
+    </div>
+</div>
+</body>
+</html>
