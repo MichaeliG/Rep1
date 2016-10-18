@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var count = 0;
+        var headCount = 0;
+        var tailCount = 0;
+        var flip = function () {
+            count++;
+            document.getElementById('countflips').value = count;
+            document.getElementById('random').textContent = Math.random();
+            if (document.getElementById('random').textContent < 0.5) {
+                headCount++;
+                document.getElementById('result').value = "Heads";
+            } else {
+                tailCount++;
+                document.getElementById('result').value = "Tails";
+
+            }
+            document.getElementById('heads').value = headCount;
+            document.getElementById('tails').value = tailCount;
+        };
+        var reset = function () {
+            count = 0;
+            headCount = 0;
+            tailCount = 0;
+            document.getElementById('countflips').value = 0;
+            document.getElementById('heads').value = 0;
+            document.getElementById('tails').value = 0;
+            //            document.getElementById('tails').value = 0;
+            //            document.getElementById('heads').value = 0;
+
+        };
+        window.onload = function () {
+        }
+    </script>
+</head>
+<body>
+<button id="btn1" onclick="flip()">Flip the coin</button>
+<button id="btn2" onclick="reset()">Reset</button>
+<br/>
+Result: <label id="random"></label><br/>
+Heads or tails: <input type="text" id="result"><br/>
+Total number of flips: <input type="text" id="countflips"><br/>
+Total number of heads: <input type="text" id="heads"><br/>
+Total number of tails: <input type="text" id="tails"><br/>
+
+</body>
+</html>

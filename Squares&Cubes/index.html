@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Recurssive squares and cubes </title>
+    <script>
+        window.onload = function()
+        {
+            var buttonVal = document.getElementById('button');
+            buttonVal.onclick = function(){
+                var start = prompt('Enter the starting value');
+                if(start) alert("The starting value is" + start);
+
+                var end = prompt('Enter the ending value');
+                if(end) {
+                    alert("The ending value is" + end);
+//
+                var space = document.getElementById('mySpace');
+                var htmltab = '<table>';
+                htmltab += '<tr><td>' + 'Number' + '</td><td>' + 'Square' + '</td><td>' + 'Cube' + '</td></tr>';
+                for (var i = start; i<=end; i++){
+                    htmltab += '<tr><td>' + i + '</td><td>' + i*i + '</td><td>' + i*i*i + '</td></tr>';
+                }
+                htmltab += '</table>';
+
+                space.innerHTML = htmltab;
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<button id="button">Click </button>
+<div id="mySpace"></div>
+</body>
+</html>
